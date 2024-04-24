@@ -9,7 +9,7 @@ void setup() {
   truckSprite = loadImage("camion SUS.png");
   playerSprite = loadImage("frogger.png");
   
-  player = new Player(width/2, height - 50, 3, playerSprite); // Player starts with 3 lives
+  player = new Player(width/2, height - 50, 3, playerSprite);
   spawner = new SpawnerVehicles(carSprite, truckSprite);
   gameOver = false;
 }
@@ -18,24 +18,24 @@ void draw() {
   background(255);
   
   if (!gameOver) {
-    // Spawn vehicles
+    
     if (frameCount % 60 == 0) {
       spawner.spawnVehicle(width, random(height/2), -random(1, 3));
     }
     
-    // Display vehicles
+   
     spawner.display();
     
-    // Display player
+    
     player.display();
     
-    // Display lives
+   
     textAlign(LEFT);
     textSize(24);
     fill(0);
     text("Lives: " + player.getLives(), 10, 30);
     
-    // Check for collisions
+  
     checkCollisions();
   } else {
     fill(0);
